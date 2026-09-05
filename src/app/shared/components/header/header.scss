@@ -1,0 +1,65 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 15%;
+  color: var(--text-light);
+  box-sizing: border-box;
+  transition: background-color var(--transition-base), padding var(--transition-base), box-shadow var(--transition-base);
+
+  &.scrolled {
+    background-color: var(--brand-primary);
+    padding: 16px 15%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .logo {
+    flex: 1;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 20px;
+      transition: color var(--transition-base);
+
+      &:hover {
+        color: rgb(180, 180, 180);
+        opacity: 1;
+      }
+    }
+  }
+
+  .cart {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+
+    .cart-icon {
+      width: 28px;
+      height: 28px;
+      color: var(--text-light);
+      transition: color 0.5s ease, transform var(--transition-fast);
+
+      &:hover {
+        color: rgb(180, 180, 180);
+        transform: scale(1.1);
+      }
+    }
+  }
+}

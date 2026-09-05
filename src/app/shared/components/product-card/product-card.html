@@ -1,0 +1,13 @@
+<div class="card" (click)="goToDetails()">
+  <div class="image-wrapper">
+    <!-- Для тестів можна тимчасово поставити заглушку, якщо фото ще немає -->
+    <img [src]="knife.imageUrl" [alt]="knife.name" onerror="this.src='/Forge_temorary.jpg'">
+  </div>
+  <div class="content">
+    <h3 class="title">{{ knife.name }}</h3>
+    <div class="footer">
+      <span class="price">{{ knife.price | currency:'UAH':'symbol-narrow':'1.0-0' }}</span>
+      <button class="buy-button" (click)="addToCart($event)">Купити</button>
+    </div>
+  </div>
+</div>

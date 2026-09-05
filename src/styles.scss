@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+  /* Корпоративні кольори */
+  --brand-primary: #8B5A2B;
+  --brand-hover: #6d4622;
+  
+  /* Текст */
+  --text-dark: #333333;
+  --text-black: #000000;
+  --text-light: #ffffff;
+  --text-muted: #A0A0A0;
+  
+  /* Фони */
+  --bg-white: #ffffff;
+  --bg-light-gray: #F2F4F5;
+  --bg-dark: #2a2a2a;
+  
+  /* Анімації */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+}

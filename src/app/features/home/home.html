@@ -1,0 +1,77 @@
+<div class="hero-container">
+  <app-header></app-header>
+  <div class="hero-background"></div>
+  <h1 class="hero-title">BE SHARP</h1>
+</div>
+
+<section class="collections">
+  <h2 class="section-title">Наявні ножі</h2>
+  
+  <div class="carousel-wrapper">
+    <!-- Кнопки навігації -->
+    <button class="nav-arrow left" (click)="scroll('left')">❮</button>
+    
+    <div class="carousel" #carouselRef>
+      @for (knife of mockKnives; track knife.id) {
+        <app-product-card [knife]="knife"></app-product-card>
+      }
+    </div>
+    
+    <button class="nav-arrow right" (click)="scroll('right')">❯</button>
+  </div>
+</section>
+
+<section class="categories-section">
+  <div class="categories-grid">
+    @for (cat of knifeCategories; track cat.name) {
+      <a [href]="cat.link" class="category-card">
+        <!-- Окремий блок для фону, щоб анімувати його без зсуву тексту -->
+        <div class="category-bg" [style.backgroundImage]="'url(' + cat.imageUrl + ')'"></div>
+        <div class="category-overlay"></div>
+        <span class="category-title">{{ cat.name }}</span>
+      </a>
+    }
+  </div>
+</section>
+
+<section class="custom-project-section">
+  <div class="custom-project-container">
+    <div class="project-image">
+      <!-- Збережіть ваше фото (наприклад, з кайдексом) у папці public -->
+      <img src="/custom_knife_gk_1.jpg" alt="Розробка персонального проєкту">
+    </div>
+    <div class="project-content">
+      <h2>СТВОРЕННЯ<br>КАСТОМНОГО<br>НОЖА</h2>
+      
+      <!-- Горизонтальна лінія-розділювач -->
+      <hr class="divider-line">
+      
+      <p>Ми пропонуємо повний цикл: від креслення до готового виробу. Ваш унікальний дизайн, наша якість.</p>
+      
+      <button class="request-btn">НАПИШІТЬ МЕНІ</button>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-content">
+      <div class="text-block">
+        <h2>ПРО БРЕНД</h2>
+        <hr class="divider-line">
+        <p>Gart Knives — це майстерня, де народжуються інструменти з характером. Ми поєднуємо преміальні матеріали, точну термічку та вивірену геометрію, щоб кожен ніж працював на 100%.</p>
+      </div>
+      <div class="text-block">
+        <h2>ПРО МАЙСТРА</h2>
+        <hr class="divider-line">
+        <p>Мене звати Петро, і я контролюю кожен етап виробництва. Від креслення та слюсарки до пошиття піхов — усе робиться вручну з максимальною увагою до деталей.</p>
+      </div>
+    </div>
+    <div class="about-image">
+      <!-- Збережіть своє вертикальне фото у папці public -->
+      <img src="/Forge_temorary.jpg" alt="Майстер за роботою">
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
