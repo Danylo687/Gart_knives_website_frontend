@@ -1,15 +1,23 @@
-<div class="hero-container">
   <app-header></app-header>
+  
+<div class="hero-container">
   <div class="hero-background"></div>
   <h1 class="hero-title">BE SHARP</h1>
 </div>
 
 <section class="collections">
-  <h2 class="section-title">Наявні ножі</h2>
+  <h2 class="section-title">
+    <a href="/catalog" class="title-link">
+      Наявні ножі
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="title-arrow" style="margin-left: -6px;">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+      </svg>
+    </a>
+  </h2>
   
   <div class="carousel-wrapper">
     <!-- Кнопки навігації -->
-    <button class="nav-arrow left" (click)="scroll('left')">❮</button>
+    <button class="nav-arrow left" (click)="scroll('left')">&#10094;</button>
     
     <div class="carousel" #carouselRef>
       @for (knife of mockKnives; track knife.id) {
@@ -17,7 +25,7 @@
       }
     </div>
     
-    <button class="nav-arrow right" (click)="scroll('right')">❯</button>
+    <button class="nav-arrow right" (click)="scroll('right')">&#10095;</button>
   </div>
 </section>
 

@@ -75,3 +75,41 @@
     }
   }
 }
+
+
+
+
+@media (max-width: 500px) {
+  .card {
+    .image-wrapper {
+      height: 160px; /* Менша висота фото */
+    }
+
+    .content {
+      padding: 8px;
+
+      .title {
+        font-size: 0.9rem; /* Менший заголовок */
+        min-height: 2.5rem; 
+      }
+
+      .footer {
+        flex-direction: column; /* Ставимо ціну над кнопкою */
+        align-items: flex-start;
+        gap: 8px;
+
+        .price {
+          font-size: 1.1rem;
+          padding: 0;
+        }
+
+        .buy-button {
+          width: 100%; /* Кнопка на всю ширину картки */
+          margin-left: 0;
+          padding: 8px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

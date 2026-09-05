@@ -48,11 +48,36 @@
 
   .section-title {
     font-size: 2rem;
-    color: var(--text-dark);
     margin: 0;
     padding-left: 48px;
     padding-bottom: 4px;
     position: relative;
+
+    /* Стилізація самого посилання */
+    a.title-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      display: inline-flex; /* Дозволяє вирівняти текст і стрілочку в один рядок */
+      align-items: center;
+      gap: 12px; /* Відстань між текстом та стрілочкою */
+      transition: color var(--transition-base);
+
+      &:hover {
+        color: var(--brand-primary); /* При наведенні текст стає корпоративним кольором */
+
+        .title-arrow {
+          transform: translateX(8px); /* Стрілочка від'їжджає вправо */
+        }
+      }
+    }
+
+    /* Стилізація стрілочки */
+    .title-arrow {
+      width: 28px;
+      height: 28px;
+      color: var(--brand-primary);
+      transition: transform var(--transition-base);
+    }
 
     &::after {
       content: '';
@@ -258,6 +283,7 @@
   }
 }
 
+
 .about-section {
   padding: 60px 15%;
   background-color: var(--bg-white);
@@ -315,5 +341,261 @@
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+
+@media (max-width: 1180px) {
+  /* Головний банер */
+  .hero-title {
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+  }
+
+  /* Секція каруселі */
+  .collections {
+    padding: 24px 5%;
+    
+    .section-title {
+      font-size: 1.7rem;
+    }
+  }
+
+  /* Секція категорій (залишається в 1 ряд, як замовлено) */
+  .categories-section {
+    padding: 0 5%;
+  }
+
+  .categories-grid {
+    gap: 16px; /* Менша відстань між 4 картками */
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+
+  /* Секція кастомного проєкту */
+  .custom-project-section {
+    padding: 32px 10%;
+  }
+
+  .custom-project-container {
+    gap: 32px; /* Зменшено відстань між фото та текстом */
+  }
+
+  .project-image {
+    height: 400px; /* Фото стає трохи нижчим */
+  }
+
+  .project-content {
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+    
+    .request-btn {
+      padding: 12px 24px;
+    }
+  }
+
+  /* Секція "Про бренд та майстра" */
+  .about-section {
+    padding: 60px 10%;
+  }
+
+  .about-container {
+    gap: 40px;
+  }
+
+  .about-image {
+    flex: 0 0 25%;
+  }
+
+  .about-content .text-block {
+    margin-bottom: 40px;
+    
+    h2 {
+      font-size: 1.7rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+@media (max-width: 1046px) {
+  .collections {
+    .carousel {
+      app-product-card {
+        /* Віднімаємо 2 проміжки по 24px (48px) і ділимо на 3 */
+        flex: 0 0 calc((100% - 47px) / 3);
+      }
+    }
+  }
+}
+
+
+@media (max-width: 940px) {
+  .about-container {
+    gap: 24px; /* Зменшуємо простір між текстовим блоком та фотографією */
+  }
+
+  .about-content {
+    .text-block {
+      margin-bottom: 24px; /* Зменшуємо відступ між блоками "Про бренд" та "Про майстра" */
+      
+      h2 {
+        font-size: 1.5rem; /* Робимо заголовки компактнішими */
+      }
+      
+      .divider-line {
+        margin: 16px 0; /* Менший відступ для лінії */
+      }
+
+      p {
+        font-size: 0.95rem; /* Злегка зменшуємо шрифт для економії місця */
+      }
+    }
+  }
+
+  .about-image {
+    flex: 0 0 45%; /* Розширюємо зону для фотографії, забираючи трохи місця в тексту */
+    aspect-ratio: 3 / 4; /* Робимо фотографію більш наближеною до квадрата, щоб вона не здавалася "смужкою" */
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Головний банер */
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+
+  /* Карусель (показуємо 2 картки) */
+  .collections {
+    overflow-x: hidden; /* Блокує будь-який горизонтальний скрол на рівні всієї секції */
+    
+    .nav-arrow {
+      display: flex; /* Повертаємо стрілки, якщо ховали їх раніше */
+      background-color: transparent; /* Прибираємо фон */
+      box-shadow: none; /* Прибираємо тінь */
+      color: var(--text-black); /* Суворі чорні стрілки */
+      width: 24px; /* Робимо кнопку вужчою, щоб економити місце */
+      height: 80px; /* Збільшуємо зону кліку по вертикалі */
+      font-size: 2.5rem; /* Робимо саму іконку більшою */
+      
+      /* scale(X, Y) робить стрілку вужчою по горизонталі (0.5) 
+         і сильно витягнутою по вертикалі (1.8) */
+      transform: translateY(-50%) scale(0.5, 1.8);
+      border-radius: 0; 
+      
+      &:hover {
+        background-color: transparent; /* Блокуємо появу фону з глобальних стилів[cite: 4] */
+        transform: translateY(-50%) scale(0.6, 1.9); /* Злегка збільшуємо при дотику */
+      }
+
+      /* Оскільки секція .collections має бокові відступи 5% на таких екранах,
+         ми використовуємо від'ємні значення у vw (viewport width), 
+         щоб заштовхати стрілки в цей порожній простір під самий край екрану */
+      &.left {
+        left: -2.5vw; 
+      }
+      &.right {
+        right: -2.5vw;
+      }
+    }
+  
+    .carousel {
+      app-product-card {
+        /* Віднімаємо 1 проміжок (24px) і ділимо на 2 */
+        flex: 0 0 calc((100% - 24px) / 2 + 1px);
+      }
+    }
+  }
+
+  /* Категорії (сітка 2х2) */
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Кастомний проєкт (вертикальне складання) */
+  .custom-project-container {
+    flex-direction: column; /* Змінюємо напрямок на вертикальний */
+    align-items: stretch;
+  }
+
+  .project-image {
+    height: auto;
+    aspect-ratio: 16 / 9; /* Повертаємо широкі пропорції для горизонтального фото */
+    width: 100%;
+  }
+
+  /* Секція "Про бренд та майстра" (вертикальне складання) */
+  .about-container {
+    flex-direction: column-reverse; /* Фотографія буде зверху, а текст під нею */
+  }
+
+  .about-image {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Замість вертикального фото робимо його горизонтальним */
+  }
+
+  .about-content .text-block {
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .hero-title {
+    /* 10vw означає, що шрифт завжди займатиме 10% ширини екрану, 
+       ідеально вписуючись в один рядок */
+    font-size: 10vw; 
+    letter-spacing: 2px; /* Зменшуємо міжлітерний інтервал для економії місця */
+    white-space: nowrap; /* Жорстко забороняє перенесення тексту на новий рядок */
+  }
+
+  .collections {
+    padding: 24px 2%; /* Мінімальні відступи по краях сторінки */
+    
+    .section-title {
+      font-size: 1.4rem;
+      padding-left: 16px;
+
+      a.title-link {
+        gap: 8px; /* Зменшуємо відстань на телефонах */
+      }
+
+      .title-arrow {
+        width: 20px; /* Робимо стрілочку компактнішою */
+        height: 20px;
+      }
+      
+      &::after {
+        left: 16px;
+        width: 150px; /* Трохи розширили лінію, щоб підкреслити і стрілочку */
+      }
+    }
+
+    .carousel {
+      gap: 12px; /* Менший проміжок між картками (був 24px) */
+      padding: 12px 8px 16px 8px;
+      scroll-padding: 0 8px;
+
+      app-product-card {
+        /* Віднімаємо 1 проміжок (12px) і ділимо на 2 */
+        flex: 0 0 calc((100% - 12px) / 2);
+      }
+    }
   }
 }
